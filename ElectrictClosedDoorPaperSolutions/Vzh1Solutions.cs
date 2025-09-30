@@ -12,7 +12,7 @@ namespace ElectrictClosedDoorPaperSolutions
         /// </summary>
         /// <example>
         /// Input     Output
-        /// 12,121      yes 
+        /// 12,121      yes
         /// 16,72       no
         /// 26,49       yes
         /// </example>
@@ -30,7 +30,7 @@ namespace ElectrictClosedDoorPaperSolutions
         /// </summary>
         /// <example>
         /// Input     Output
-        /// 12,121      yes 
+        /// 12,121      yes
         /// 16,72       no
         /// 26,49       yes
         /// </example>
@@ -239,14 +239,14 @@ namespace ElectrictClosedDoorPaperSolutions
         }
 
         /// <summary>
-        /// Írj programot, amely beolvas három egész számpárt (hat, vesszõvel elválasztott egész számot).
-        /// A program írja ki az intervallumok legtágabb közös részintervallumának hosszát!
-        /// (Feltételezhetõ, hogy a számpárok elsõ tagja kisebb a másodiknál.)<br>
+        /// Write a program that reads three pairs of integers (six integers separated by commas).
+        /// The program prints the length of the greatest common subinterval of the intervals!
+        /// (It can be assumed that the first member of the pairs of numbers is less than the second.)
         /// </summary>
         /// <example>
         /// Input           Output
         /// 1,5,3,10,0,2    0
-		/// -5,2,-3,1,-7,0  3
+        /// -5,2,-3,1,-7,0  3
         /// </example>
         public static int Fkod16Solution1(int[] pairsOfNumbers)
         {
@@ -283,8 +283,8 @@ namespace ElectrictClosedDoorPaperSolutions
         }
 
         /// <summary>
-        /// Írj programot, amely beolvas egy egész számot (n), és kiírja a 0 és n közötti köbszámok számát!
-        /// (Köbszám az, aminek köbgyöke egész.)
+        /// Write a program that reads an integer (n) and prints the number of cubes between 0 and n!
+        /// (A cube is a number whose cube root is an integer.)
         /// </summary>
         /// <example>
         /// Input       Output
@@ -312,8 +312,8 @@ namespace ElectrictClosedDoorPaperSolutions
         }
 
         /// <summary>
-        /// Írj programot, amely beolvas egy egész számot (n), és kiírja a 0 és n közötti köbszámok számát!
-        /// (Köbszám az, aminek köbgyöke egész.)
+        /// Write a program that reads an integer (n) and prints the number of cubes between 0 and n!
+        /// (A cube is a number whose cube root is an integer.)
         /// </summary>
         /// <example>
         /// Input       Output
