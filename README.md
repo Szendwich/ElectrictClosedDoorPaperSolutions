@@ -58,8 +58,7 @@ The program prints the length of the greatest common subinterval of the interval
 | -5,2,-3,1,-7,0 |      3 |
 
 ### Cube root
->Write a program that reads an integer (n) and prints the number of cubes between 0 and n!
-(A cube is a number whose cube root is an integer.)
+>Write a program that reads an integer (n) and prints the number of cubes between 0 and n! (A cube is a number whose cube root is an integer.)
 
 | Input  | Output |
 | ------ | ------ |
@@ -67,3 +66,68 @@ The program prints the length of the greatest common subinterval of the interval
 | 9      |      3 |
 | -10    |      3 |
 | 1024   |     11 |
+
+## VZH2
+
+### How many word in the line
+>Write a program that reads a line and prints out how many words are in the line! We consider a single space as the only delimiter.
+It can be assumed that the line consists of at most 64 characters.
+
+| Input                            | Output |
+| -------------------------------- | ------ |
+| alma korte                       |      2 |
+| szilva,barack                    |      1 |
+| Hany szo van ebben a mondatban?  |      6 |
+
+### Palindrome
+>Write a program that reads a line and determines whether it is a palindrome. Palindromes are phrases or sentences that have the same meaning when read backwards.
+The program ignores non-letter characters(spaces, commas, etc.)! It is assumed that the input consists of only lowercase letters.
+The program returns the word "yes" or "no" as the answer! It is assumed that the line consists of a maximum of 64 characters.
+
+| Input                               | Output |
+| ----------------------------------- | ------ |
+| indul a görög aludni.               |    yes |
+| géza, kék az ég!                    |    yes |
+| nehéz ez a feladat                  |     no |
+| rám német nem lel, elmentem én már. |    yes |
+
+### Reverse the row
+>Write a program that reads a line and prints its reverse! It is assumed that the line consists of at most 64 characters.
+
+| Input                | Output             |
+| -------------------- | ------------------ |
+| indul a görög aludni |indula görög aludni |
+| fordítva             |avtídrof            |
+
+### Border word
+>Write a program that reads a line containing two words separated by a single space and determines whether the second word is a border of the first.
+A word is a border of another if it is both the beginning and end of it.It is assumed that the line consists of at most 64 characters.
+
+| Input         | Output |
+| ------------- | ------ |
+| abababa ababa |    yes |
+| pompom pom    |    yes |
+| alma alma     |    yes |
+| alma a        |    yes |
+| kerek ke      |     no |
+
+
+### Lower to Upper or Upper to Lower
+>Write a program that reads a line and converts it to the screen in a format that changes all lowercase letters to uppercase and all uppercase letters to lowercase.
+It is assumed that the lines contain only letters of the English alphabet, punctuation marks, and spaces.It is assumed that the line consists of at most 64 characters.
+
+| Input               | Output              |
+| ------------------- | ------------------- |
+| Ez egy pelDaMONdat. | eZ EGY PELdAmonDAT. |
+
+### Substring
+>Write a program that reads a line containing two words separated by a single space and searches the first word for the starting position of the first occurrence of the second word.
+The program should print -1 if the searched word is not found, otherwise the starting position.
+It is assumed that the line consists of at most 64 characters.
+
+| Input          | Output |
+| -------------- | ------ |
+| almafa alma    |      0 |
+| JuhászPici ász |      3 |
+| szakest pia    |     -1 |
+| nap nappal     |     -1 |
