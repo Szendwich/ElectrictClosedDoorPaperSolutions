@@ -1,4 +1,4 @@
-# ElectrictClosedDoorPaperSolutions
+ï»¿# ElectrictClosedDoorPaperSolutions
 Old "written examination" exercises and their solution in .NET &amp; C#
 
 ## VZH1
@@ -86,18 +86,18 @@ The program returns the word "yes" or "no" as the answer! It is assumed that the
 
 | Input                               | Output |
 | ----------------------------------- | ------ |
-| indul a görög aludni.               |    yes |
-| géza, kék az ég!                    |    yes |
-| nehéz ez a feladat                  |     no |
-| rám német nem lel, elmentem én már. |    yes |
+| indul a gÃ¶rÃ¶g aludni.               |    yes |
+| gÃ©za, kÃ©k az Ã©g!                    |    yes |
+| nehÃ©z ez a feladat                  |     no |
+| rÃ¡m nÃ©met nem lel, elmentem Ã©n mÃ¡r. |    yes |
 
 ### Reverse the row
 >Write a program that reads a line and prints its reverse! It is assumed that the line consists of at most 64 characters.
 
 | Input                | Output             |
 | -------------------- | ------------------ |
-| indul a görög aludni |indula görög aludni |
-| fordítva             |avtídrof            |
+| indul a gÃ¶rÃ¶g aludni |indula gÃ¶rÃ¶g aludni |
+| fordÃ­tva             |avtÃ­drof            |
 
 ### Border word
 >Write a program that reads a line containing two words separated by a single space and determines whether the second word is a border of the first.
@@ -128,6 +128,97 @@ It is assumed that the line consists of at most 64 characters.
 | Input          | Output |
 | -------------- | ------ |
 | almafa alma    |      0 |
-| JuhászPici ász |      3 |
+| JuhÃ¡szPici Ã¡sz |      3 |
 | szakest pia    |     -1 |
 | nap nappal     |     -1 |
+
+
+## VZH3
+
+### Sum below the average
+>Write a program that reads real numbers from standard input until EOF. Each line contains exactly one number.
+The input can contain any number, but it must contain at least one.
+The program writes to standard output the sum of the values â€‹â€‹that are equal to or less than the average of all numbers read!
+Use a linked list to solve this problem!
+
+| Input                    | Output  |
+| ------------------------ | ------- |
+| 3.6 1.2 5 1.48           |    2.68 |
+| -5.4 3.2 -524.36 -0 -200 | -724.36 |
+
+### Reverse
+>Write a program that reads characters from standard input up to the * character. The characters can be uppercase and lowercase letters of the English alphabet and the * character.
+Each line contains exactly one character.The input can contain any number of characters, but it must contain at least one.
+The program writes the characters read in reverse order to the standard output, in a single line, replacing lowercase letters with uppercase letters.
+The output also contains the* character! Use a linked list to solve this problem!
+
+| Input | Output |
+| ------| ------ |
+| *     |      * |
+| g*    |     *G |
+| alMa* |  *AMLA |
+
+### Except
+>Write a program that reads nonnegative integers from standard input. Each line contains exactly one number.
+The list represents two sequences of numbers, each of which has at least one element, terminated by the number 0. The input can contain any number.
+The program writes to standard output the numbers that are in the second sequence but not in the first!
+The program writes the resulting sequence of numbers to the output in the same format.The order of the numbers should be the same as the original order.
+Use a linked list to solve this problem!
+
++-------------------------------+---------+
+| Input                         | Output  |
++===============================+=========+
+| data work product             | data    |
+| area program system work      | work    |
+|                               | area    |
+|                               | work    |
+|                               | system  |
+|                               | product |
+|                               | program |
++-------------------------------+---------+
+| kis kacsa furdik fekete toban | kis     |
+|                               | kacsa   |
+|                               | toban   |
+|                               | furdik  |
+|                               | fekete  |
++-------------------------------+---------+
+
+### Order by
+>Write a program that reads words separated by spaces until the end of the line EOF. The words are separated by whitespace characters (space, tab, and newline).
+The length of each word is up to 32 characters.The number of lines and words in a line is arbitrary.
+The program prints the words one below the other, sorted by their length in ascending order.In case of the same length, the order of arrival counts.
+Use a linked list to solve the problem!
+
++--------------+----------+
+| Input        | Output   |
++==============+==========+
+| 5 2 0        | 7 0      |
+| 7 5 0        |          |
++--------------+----------+
+| 17 2 6 9 0   | 4 8 10 0 |
+| 2 4 6 8 10 0 |          |
++--------------+----------+
+
+### Concat
+>Write a program that reads lines from the standard input. The lines contain a grade and a Neptun code separated by a comma.
+The number of lines is arbitrary. The program reads until EOF.
+Based on the input, a multilist must be created, in which one chain contains the data according to Neptun code, and the other according to arrival in ascending order.
+The program lists the data according to Neptun code, then according to grade.
+The two lists are separated by a line containing the characters "---". Separate the grades from the Neptun codes with a space character!
+Each grade code should be placed on a new line in pairs.
+
++----------+----------+
+| Input    | Output   |
++==========+==========+
+| 5,FRTY5F | 3 AWSD3E |
+| 3,AWSD3E | 2 BDER3W |
+| 2,BDER3W | 5 FRTY5F |
+| 4,GRTY6R | 4 GRTY6R |
+| 5,QWER3R | 5 QWER3R |
+|          | ---      |
+|          | 2 BDER3W |
+|          | 3 AWSD3E |
+|          | 4 GRTY6R |
+|          | 5 FRTY5F |
+|          | 5 QWER3R |
++==========+==========+
