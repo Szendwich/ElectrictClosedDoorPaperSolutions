@@ -165,23 +165,11 @@ The program writes to standard output the numbers that are in the second sequenc
 The program writes the resulting sequence of numbers to the output in the same format.The order of the numbers should be the same as the original order.
 Use a linked list to solve this problem!
 
-+-------------------------------+---------+
-| Input                         | Output  |
-+===============================+=========+
-| data work product             | data    |
-| area program system work      | work    |
-|                               | area    |
-|                               | work    |
-|                               | system  |
-|                               | product |
-|                               | program |
-+-------------------------------+---------+
-| kis kacsa furdik fekete toban | kis     |
-|                               | kacsa   |
-|                               | toban   |
-|                               | furdik  |
-|                               | fekete  |
-+-------------------------------+---------+
+| Input                                           | Output                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------ |
+| data work product<br />area program system work | data<br />work<br />area<br />work<br />system<br />product<br />program |
+| kis kacsa furdik fekete toban                   | kis<br />kacsa<br />toban<br />furdik<br />fekete                        |
+
 
 ### Order by
 >Write a program that reads words separated by spaces until the end of the line EOF. The words are separated by whitespace characters (space, tab, and newline).
@@ -189,15 +177,10 @@ The length of each word is up to 32 characters.The number of lines and words in 
 The program prints the words one below the other, sorted by their length in ascending order.In case of the same length, the order of arrival counts.
 Use a linked list to solve the problem!
 
-+--------------+----------+
-| Input        | Output   |
-+==============+==========+
-| 5 2 0        | 7 0      |
-| 7 5 0        |          |
-+--------------+----------+
-| 17 2 6 9 0   | 4 8 10 0 |
-| 2 4 6 8 10 0 |          |
-+--------------+----------+
+| Input                        | Output   |
+| ---------------------------- | -------- |
+| 5 2 0<br />7 5 0             | 7 0      |
+| 17 2 6 9 0<br />2 4 6 8 10 0 | 4 8 10 0 |
 
 ### Concat
 >Write a program that reads lines from the standard input. The lines contain a grade and a Neptun code separated by a comma.
@@ -207,18 +190,6 @@ The program lists the data according to Neptun code, then according to grade.
 The two lists are separated by a line containing the characters "---". Separate the grades from the Neptun codes with a space character!
 Each grade code should be placed on a new line in pairs.
 
-+----------+----------+
-| Input    | Output   |
-+==========+==========+
-| 5,FRTY5F | 3 AWSD3E |
-| 3,AWSD3E | 2 BDER3W |
-| 2,BDER3W | 5 FRTY5F |
-| 4,GRTY6R | 4 GRTY6R |
-| 5,QWER3R | 5 QWER3R |
-|          | ---      |
-|          | 2 BDER3W |
-|          | 3 AWSD3E |
-|          | 4 GRTY6R |
-|          | 5 FRTY5F |
-|          | 5 QWER3R |
-+==========+==========+
+| Input                                                            | Output                                                                                                                                           |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 5,FRTY5F<br />3,AWSD3E<br />2,BDER3W<br />4,GRTY6R<br />5,QWER3R | 3 AWSD3E<br />2 BDER3W<br />5 FRTY5F<br />4 GRTY6R<br />5 QWER3R<br />---<br />2 BDER3W<br />3 AWSD3E<br />4 GRTY6R<br />5 FRTY5F<br /> 5 QWER3R |
