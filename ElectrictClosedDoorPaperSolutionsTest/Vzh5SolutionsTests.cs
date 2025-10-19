@@ -33,5 +33,14 @@ namespace ElectrictClosedDoorPaperSolutionsTest
             Vzh5Solutions.Fkod52Solution1(inputFilePath, tempOutputFile);
             Assert.IsTrue(fileHelper.CompareFiles(filePathOfExpectedResult, tempOutputFile, out int difference), $"Difference: {difference}");
         }
+
+        [DataRow(@"Vzh5\fkod53input1.txt", @"Vzh5\fkod53output1.txt")]
+        [TestMethod]
+        public void TestFkod53Solution1(string inputFilePath, string filePathOfExpectedResult)
+        {
+            var tempOutputFile = Path.GetTempFileName();
+            Vzh5Solutions.Fkod53Solution1(inputFilePath, tempOutputFile);
+            Assert.IsTrue(fileHelper.CompareFiles(filePathOfExpectedResult, tempOutputFile, out int difference), $"Difference: {difference}");
+        }
     }
 }

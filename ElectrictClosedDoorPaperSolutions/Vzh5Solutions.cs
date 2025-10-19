@@ -1,5 +1,6 @@
 ﻿using ElectrictClosedDoorPaperSolutions.Extensions;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ElectrictClosedDoorPaperSolutions
 {
@@ -11,12 +12,21 @@ namespace ElectrictClosedDoorPaperSolutions
         /// Write a program that reads the file and writes the names, sorted by name, to another file.
         /// </summary>
         /// <example>
-        /// Input       Output
-        /// John Doe    Bruce Lee
-        /// Mues Lee    Foo Bar
-        /// Bruce Lee   John Doe
-        /// Foo Bar     Last Van
-        /// Last Van    Mues Lee
+        /// Input
+        /// -----
+        /// John Doe
+        /// Mues Lee
+        /// Bruce Lee
+        /// Foo Bar
+        /// Last Van
+        /// 
+        /// Output
+        /// ------
+        /// Bruce Lee
+        /// Foo Bar
+        /// John Doe
+        /// Last Van
+        /// Mues Lee
         /// </example>
         public static async Task Fkod51Solution1(string inputFilePath, string outputFilePath)
         {
@@ -44,6 +54,7 @@ namespace ElectrictClosedDoorPaperSolutions
         /// Bruce Lee	04:01	03:58	03:59	04:02
         /// Foo Bar		03:57	04:00	04:04	03:56
         /// Last Van	03:42	03:43	03:41	03:40
+        /// 
         /// Output
         /// ------
         /// 1. Last Van		14:46
@@ -98,6 +109,56 @@ namespace ElectrictClosedDoorPaperSolutions
                     stringBuilder.Append($"{timeResults[i].Minutes}:{timeResults[i].Seconds}");
                     stringBuilder.Append(Environment.NewLine);
                 }
+            }
+
+            File.WriteAllText(outputFilePath, stringBuilder.ToString());
+        }
+
+        /// <summary>
+        /// Given a file that contains left-aligned text. It is possible that there are multiple spaces between two words.
+        /// The output file contains the right-aligned version of the original text!
+        /// The last character of the lines should be in the position where the last character of the longest line of the original file was.
+        /// The program should remove unnecessary spaces from the words.
+        /// </summary>
+        /// <example>
+        /// Input
+        /// -----
+        /// - Töltsünk be egy palackkal a jó öreg ó-Janx-szeszbõl
+        /// - hangzik a recept.Adjunk hozzá egy rész vizet
+        /// a Santagrinus-V tengereibõl.Ó, az a santagrineánus
+        /// tengervíz - teszi hozzá a GALAXIS Útikalauz.
+        /// Ó, azok a santagrineánus halak!!!
+        /// Olvasszunk fel a keverékben három kocka Arcturus
+        /// Megagint   - alaposan meg kell jegelni, különben elvész
+        /// a benzin! Buborékoltassunk át négy liter falliánus
+        /// mocsárgázt a keveréken, mindazon boldog Stopposok
+        /// emlékére, akik belepusztultak a gyönyörökbe Fallia
+        /// mocsaraiban.
+        /// Output
+        /// ------
+        ///   - Töltsünk be egy palackkal a jó öreg ó-Janx-szeszbõl
+        ///          - hangzik a recept.Adjunk hozzá egy rész vizet
+        ///      a Santagrinus-V tengereibõl.Ó, az a santagrineánus
+        ///            tengervíz - teszi hozzá a GALAXIS Útikalauz.
+        ///                       Ó, azok a santagrineánus halak!!!
+        ///        Olvasszunk fel a keverékben három kocka Arcturus
+        ///   Megagint - alaposan meg kell jegelni, különben elvész
+        ///      a benzin! Buborékoltassunk át négy liter falliánus
+        ///       mocsárgázt a keveréken, mindazon boldog Stopposok
+        ///      emlékére, akik belepusztultak a gyönyörökbe Fallia
+        ///                                            mocsaraiban.
+        /// </example>
+        public static void Fkod53Solution1(string inputFilePath, string outputFilePath)
+        {
+            var lines = File.ReadAllLines(inputFilePath);
+            var longestLine = lines.Select(l => l.Length).Max();
+            
+            StringBuilder stringBuilder = new();
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new("[ ]{2,}", options);
+            foreach (string line in lines)
+            {
+                stringBuilder.AppendLine(regex.Replace(line, " ").PadLeft(longestLine)[..(longestLine - 1)]);
             }
 
             File.WriteAllText(outputFilePath, stringBuilder.ToString());
