@@ -1,4 +1,5 @@
 ﻿using ElectrictClosedDoorPaperSolutions.Extensions;
+using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -37,14 +38,20 @@ namespace ElectrictClosedDoorPaperSolutions
         /// <summary>
         /// Given a text file containing a table.
         /// The table has five columns, the columns are separated by one or more tab characters.
-        /// The first column contains the names of the competitors, which consist only of lowercase and uppercase letters of the English alphabet and a single space.
+        /// The first column contains the names of the competitors, which consist only of lowercase
+        /// and uppercase letters of the English alphabet and a single space.
         /// Each name consists of exactly one last name and one first name.
-        /// The remaining columns contain the time results of each competitor in mm:ss format (minutes and seconds with two digits).
+        /// The remaining columns contain the time results of each competitor in mm:ss format
+        /// (minutes and seconds with two digits).
         /// Write a program that writes the data of the podium competitors to another text file.
         /// The format of the output should be as follows: "PLACE;TOTAL".
-        /// Please write the name in exactly 30 characters, in case of shorter names, spaces are expected in the remaining places.
-        /// It is assumed that the total time does not exceed 100 minutes, and that the names of the competitors are no longer than thirty characters.
-        /// In the event of a tie, several competitors may achieve the same position, in which case the program will display all first, second and third place winners in the same way, with position, per row.
+        /// Please write the name in exactly 30 characters, in case of shorter names,
+        /// spaces are expected in the remaining places.
+        /// It is assumed that the total time does not exceed 100 minutes, and that the names
+        /// of the competitors are no longer than thirty characters.
+        /// In the event of a tie, several competitors may achieve the same position,
+        /// in which case the program will display all first, second and third place winners in the same way,
+        /// with position, per row.
         /// </summary>
         /// <example>
         /// Input
@@ -115,9 +122,11 @@ namespace ElectrictClosedDoorPaperSolutions
         }
 
         /// <summary>
-        /// Given a file that contains left-aligned text. It is possible that there are multiple spaces between two words.
+        /// Given a file that contains left-aligned text. It is possible that there
+        /// are multiple spaces between two words.
         /// The output file contains the right-aligned version of the original text!
-        /// The last character of the lines should be in the position where the last character of the longest line of the original file was.
+        /// The last character of the lines should be in the position where the last
+        /// character of the longest line of the original file was.
         /// The program should remove unnecessary spaces from the words.
         /// </summary>
         /// <example>
@@ -162,6 +171,126 @@ namespace ElectrictClosedDoorPaperSolutions
             }
 
             File.WriteAllText(outputFilePath, stringBuilder.ToString());
+        }
+
+        /// <summary>
+        /// Given a file containing integers separated by whitespace
+        /// characters. Write a program that writes to another file
+        /// those lines of the first file in which (some) of its most frequent numbers
+        /// appear at least twice.
+        /// </summary>
+        /// <example>
+        /// Input
+        /// -----
+        /// 3 5 3 3 6 2 0
+        /// 4 5 7 6 2 -5 3
+        /// -5 3 5
+        /// 12 5 2 5
+        /// 
+        /// Output
+        /// ------
+        /// 3 5 3 3 6 2 0
+        /// 12 5 2 5
+        /// </example>
+        public static void Fkod54Solution1(string inputFilePath, string outputFilePath)
+        {
+            Dictionary<string, int> occurrences = [];
+            var lines = File.ReadAllLines(inputFilePath);
+            foreach (string line in lines)
+            {
+                var splittedLine = line.Split(Array.Empty<char>(), StringSplitOptions.RemoveEmptyEntries);
+                foreach (var item in splittedLine)
+                {
+                    if (occurrences.TryGetValue(item, out int value))
+                    {
+                        occurrences[item] = ++value;
+                    }
+                    else
+                    {
+                        occurrences.Add(item, 1);
+                    }
+                }
+            }
+
+            IEnumerable<string> mostCommonNumbers = occurrences.Where(x => x.Value == occurrences.MaxBy(y => y.Value).Value).Select(z => z.Key);
+            foreach (string line in lines)
+            {
+                var splittedLine = line.Split(Array.Empty<char>(), StringSplitOptions.RemoveEmptyEntries);
+                Dictionary<string, int> currentOccurence = [];
+                foreach (var item in splittedLine)
+                {
+                    if (mostCommonNumbers.Contains(item))
+                    {
+                        if (currentOccurence.TryGetValue(item, out int value))
+                        {
+                            currentOccurence[item] = ++value;
+                        }
+                        else
+                        {
+                            currentOccurence.Add(item, 1);
+                        }
+                    }
+                }
+
+                if (currentOccurence.Any(x => x.Value > 1))
+                {
+                    File.AppendAllText(outputFilePath, $"{line}{Environment.NewLine}");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Given a file containing sentences, exactly
+        /// one on each line. Write a program that writes to another file those
+        /// sentences from the first file that have a word of at least five characters long that
+        /// is a palindrome.
+        /// </summary>
+        /// <example>
+        /// Input
+        /// -----
+        /// Rám német nem& lel, elmentem én már.<BR>
+        /// A 0 kerek szám.
+        /// Jó pap holtig tanul.
+        /// 
+        /// Output
+        /// ------
+        /// A 0 kerek szám.
+        /// </example>
+        public static void Fkod55Solution1(string inputFilePath, string outputFilePath)
+        {
+            var lines = File.ReadAllLines(inputFilePath);
+            foreach (string line in lines)
+            {
+                var splittedLine = line.Split(' ');
+                if (IsThereA5charLongPalindrome(splittedLine))
+                {
+                    File.AppendAllText(outputFilePath, line);
+                }
+            }
+        }
+
+        private static bool IsThereA5charLongPalindrome(string[] words)
+        {
+            foreach (string word in words)
+            {
+                int i = 0;
+                if (word.Length >= 5)
+                {
+                    for (; i < word.Length / 2; i++)
+                    {
+                        if (word[i] != word[word.Length - 1 - i])
+                        {
+                            break;
+                        }
+                    }
+
+                    if (i == word.Length / 2)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
